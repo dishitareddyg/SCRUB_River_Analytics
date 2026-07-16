@@ -1,0 +1,137 @@
+# =============================================================================
+# Analytics Engine Configuration
+# =============================================================================
+#
+# This file is the single source of truth for every coefficient,
+# equation selection, correction factor, and default assumption used
+# by the Analytics Engine (app/analytics/). No calculator is permitted
+# to hardcode a coefficient in Python - if a number affects a
+# computed result, it lives here.
+#
+# Changing an equation, recalibrating a site, or swapping a hydraulic
+# model only ever requires editing this file - never Python code.
+#
+# All values are dimensionless multipliers/coefficients or are in the
+# units noted in each comment. See each calculator's `metadata()` for
+# the full formula, scientific reference, and units.
+# =============================================================================
+
+water_quality:
+  tds:
+    # TDS (mg/L) = conductivity_to_tds_factor * EC (uS/cm)
+    # Typical range 0.55-0.75 for natural waters.
+    # Reference: Hem, J.D. (1985), "Study and Interpretation of the
+    # Chemical Characteristics of Natural Water", USGS Water-Supply
+    # Paper 2254, 3rd ed., p. 66.
+    conductivity_to_tds_factor: 0.65
+
+  salinity:
+    # Practical Salinity Scale 1978 (PSS-78) reference conductivity of
+    # standard seawater at 35 PSU, 15 C, 0 dbar (i.e. C(35,15,0)).
+    # Reference: UNESCO (1981), "Background papers and supporting
+    # data on the Practical Salinity Scale 1978", UNESCO Technical
+    # Papers in Marine Science No. 37.
+    reference_conductivity_us_cm: 42914.0
+    reference_pressure_dbar: 0.0
+
+oxygen:
+  saturation:
+    # Standard atmospheric pressure used by the Benson-Krause table
+    # (mmHg / torr).
+    standard_pressure_mmhg: 760.0
+    # Apply the Weiss (1970) / Benson-Krause (1984) salinity
+    # correction term when a salinity estimate is available.
+    apply_salinity_correction: true
+    # Apply barometric-pressure (altitude) correction to the
+    # saturation concentration when barometric pressure is available.
+    apply_pressure_correction: true
+
+density:
+  # Apply a linearized dissolved-solids correction to the pure-water
+  # (Kell, 1975) density when a salinity estimate is available.
+  apply_salinity_correction: true
+  # Linearized correction coefficient (kg/m^3 per PSU), derived from
+  # the UNESCO EOS-80 equation of state at low salinity.
+  # Reference: Millero, F.J. and Poisson, A. (1981), "International
+  # one-atmosphere equation of state of seawater", Deep-Sea Research,
+  # 28A(6), 625-629.
+  salinity_expansion_coefficient_kg_m3_per_psu: 0.75
+
+geometry:
+  # Assumed channel cross-section shape used for all geometric
+  # calculators. "trapezoidal" is the standard simplification for
+  # natural channels without a full surveyed cross-section.
+  # Reference: Chow, V.T. (1959), "Open-Channel Hydraulics",
+  # McGraw-Hill, Chapter 2.
+  channel_shape: trapezoidal
+
+  # Site-survey geometry. These are NOT sensor readings - they are
+  # fixed physical-survey values for the monitoring station and MUST
+  # be calibrated per deployment site. Left null by default so the
+  # engine reports NOT_COMPUTABLE rather than silently guessing a
+  # channel shape.
+  bed_width_m: null
+  side_slope_h_per_v: null
+
+  # Whether a sonar/multi-beam cross-section profiler is installed at
+  # this site. When true and bed_width_m/side_slope_h_per_v are also
+  # configured, the trapezoidal approximation is used for river width;
+  # a future module may report true surveyed width once available.
+  sonar_profiler_available: false
+
+hydraulic:
+  # "manning" or "chezy" - selects the open-channel flow-velocity
+  # equation used by the flow-velocity calculator.
+  velocity_equation: manning
+
+  # Longitudinal channel bed slope (dimensionless, m/m). A
+  # site-survey constant, not a sensor reading.
+  channel_slope_m_per_m: null
+
+  # Manning's roughness coefficient "n" (dimensionless).
+  # Default 0.035 corresponds to "clean, winding, some pools and
+  # shoals" natural streams.
+  # Reference: Chow, V.T. (1959), "Open-Channel Hydraulics",
+  # McGraw-Hill, Table 5-6.
+  manning_roughness_n: 0.035
+
+  # Chezy resistance coefficient "C" (m^(1/2)/s), used only when
+  # velocity_equation is "chezy".
+  # Reference: Chow, V.T. (1959), "Open-Channel Hydraulics",
+  # McGraw-Hill, Chapter 8.
+  chezy_coefficient_c: null
+
+sediment:
+  # "turbidity_surrogate" estimates suspended-sediment concentration
+  # (SSC) from turbidity, then computes load from SSC * discharge.
+  # "discharge_rating_curve" estimates sediment discharge directly
+  # from streamflow via a power-law rating curve, bypassing turbidity.
+  method: turbidity_surrogate
+
+  # SSC (mg/L) = turbidity_to_ssc_a * turbidity(NTU) ^ turbidity_to_ssc_b
+  # Site-specific regression coefficients. Defaults are a commonly
+  # cited order-of-magnitude starting point only and MUST be
+  # recalibrated per site against physical SSC samples.
+  # Reference: Rasmussen, P.P., Gray, J.R., Glysson, G.D., and
+  # Ziegler, A.C. (2009), "Guidelines and Procedures for Computing
+  # Time-Series Suspended-Sediment Concentrations and Loads from
+  # In-Stream Turbidity-Sensor and Streamflow Data", USGS Techniques
+  # and Methods, book 3, chap. C4.
+  turbidity_to_ssc_a: 1.0
+  turbidity_to_ssc_b: 1.0
+
+  # Qs (tons/day) = discharge_rating_curve_a * Q(m^3/s) ^ discharge_rating_curve_b
+  # Used only when method is "discharge_rating_curve".
+  # Reference: Asselman, N.E.M. (2000), "Fitting and interpretation
+  # of sediment rating curves", Journal of Hydrology, 234(3-4).
+  discharge_rating_curve_a: 0.01
+  discharge_rating_curve_b: 1.5
+
+  # Load equation constant converting SSC(mg/L) * Q(m^3/s) into
+  # metric tons/day: 0.0864 = 86400 s/day * 1e-6 (mg->kg per L->m^3
+  # unit reduction) * 1e-3 (kg->tonnes) ... consolidated to the
+  # standard published constant.
+  # Reference: Porterfield, G. (1972), "Computation of Fluvial-
+  # Sediment Discharge", USGS Techniques of Water-Resources
+  # Investigations, Book 3, Chapter C3, p. 12.
+  load_conversion_constant: 0.0864

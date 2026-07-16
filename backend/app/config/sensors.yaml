@@ -1,0 +1,204 @@
+# =============================================================================
+# Sensor Configuration
+# =============================================================================
+#
+# This file defines GENERIC sensor metadata for the River Intelligence
+# Platform. The backend never depends on a specific hardware model -
+# it only understands the fields below.
+#
+# Hardware examples such as DHT11, BMP180, or DS18B20 are NOT
+# referenced by the application; they are mentioned only here, in
+# comments, purely for a human's context when wiring the firmware.
+#
+# Each entry under `sensors:` follows this schema:
+#
+#   sensor_name:          Unique machine-readable identifier (snake_case)
+#   display_name:         Human friendly name shown on the dashboard
+#   description:          Short description of what the sensor measures
+#   category:             One of the SensorCategory values defined in
+#                          app/config/constants.py (e.g. "ph",
+#                          "dissolved_oxygen", "water_temperature")
+#   unit:                 Unit of measurement (e.g. "mg/L", "NTU", "C")
+#   enabled:               true | false - whether this sensor is active
+#   sampling_interval:    Sampling interval in seconds for this sensor
+#   minimum_value:        Lowest physically valid reading
+#   maximum_value:        Highest physically valid reading
+#   aliases:               Optional list of alternate JSON field names
+#                          the Arduino firmware may transmit for this
+#                          sensor (e.g. a short key like "do" for
+#                          "dissolved_oxygen"). Lets the serial
+#                          acquisition module resolve incoming packet
+#                          fields to a canonical sensor_name without
+#                          any sensor names being hardcoded in Python.
+#
+# Future modules (serial reader, packet validator, analytics) will
+# load this file to know which channels to expect and how to validate
+# them - none of that logic is implemented in this foundation module.
+# =============================================================================
+
+sensors:
+
+  - sensor_name: water_temperature
+    display_name: "Water Temperature"
+    description: "Temperature of the river water"
+    category: water_temperature
+    unit: "C"
+    enabled: true
+    sampling_interval: 5
+    minimum_value: -5.0
+    maximum_value: 45.0
+    # Example hardware: a waterproof digital temperature probe
+
+  - sensor_name: ph_level
+    display_name: "pH Level"
+    description: "Acidity/alkalinity of the river water"
+    category: ph
+    unit: "pH"
+    enabled: true
+    sampling_interval: 5
+    minimum_value: 0.0
+    maximum_value: 14.0
+    aliases: ["ph"]
+    # Example hardware: an analog pH probe with signal conditioning board
+
+  - sensor_name: dissolved_oxygen
+    display_name: "Dissolved Oxygen"
+    description: "Amount of oxygen dissolved in the water"
+    category: dissolved_oxygen
+    unit: "mg/L"
+    enabled: true
+    sampling_interval: 10
+    minimum_value: 0.0
+    maximum_value: 20.0
+    aliases: ["do"]
+    # Example hardware: an optical or galvanic DO probe
+
+  - sensor_name: turbidity
+    display_name: "Turbidity"
+    description: "Cloudiness/haziness of the water caused by suspended particles"
+    category: turbidity
+    unit: "NTU"
+    enabled: false
+    sampling_interval: 10
+    minimum_value: 0.0
+    maximum_value: 4000.0
+    # Example hardware: an infrared turbidity sensor module
+
+  - sensor_name: conductivity
+    display_name: "Electrical Conductivity"
+    description: "Ability of water to conduct electrical current"
+    category: conductivity
+    unit: "uS/cm"
+    enabled: false
+    sampling_interval: 10
+    minimum_value: 0.0
+    maximum_value: 20000.0
+
+  - sensor_name: orp
+    display_name: "Oxidation-Reduction Potential"
+    description: "Redox potential of the river water"
+    category: orp
+    unit: "mV"
+    enabled: false
+    sampling_interval: 10
+    minimum_value: -1000.0
+    maximum_value: 1000.0
+    # Example hardware: an ORP probe with signal conditioning board
+
+  - sensor_name: air_temperature
+    display_name: "Air Temperature"
+    description: "Ambient air temperature near the monitoring station"
+    category: air_temperature
+    unit: "C"
+    enabled: false
+    sampling_interval: 30
+    minimum_value: -20.0
+    maximum_value: 60.0
+    # Example hardware: a digital temperature/humidity combo sensor
+
+  - sensor_name: humidity
+    display_name: "Relative Humidity"
+    description: "Ambient relative humidity near the monitoring station"
+    category: humidity
+    unit: "%"
+    enabled: false
+    sampling_interval: 30
+    minimum_value: 0.0
+    maximum_value: 100.0
+
+  - sensor_name: barometric_pressure
+    display_name: "Barometric Pressure"
+    description: "Atmospheric pressure at the station"
+    category: barometric_pressure
+    unit: "hPa"
+    enabled: false
+    sampling_interval: 30
+    minimum_value: 800.0
+    maximum_value: 1100.0
+    aliases: ["pressure"]
+    # Example hardware: a barometric pressure/altitude sensor module
+
+  - sensor_name: water_level
+    display_name: "Water Level"
+    description: "Height of the water surface relative to a fixed reference"
+    category: water_level
+    unit: "m"
+    enabled: false
+    sampling_interval: 60
+    minimum_value: 0.0
+    maximum_value: 10.0
+    # Example hardware: an ultrasonic distance sensor
+
+  - sensor_name: river_depth
+    display_name: "River Depth"
+    description: "Depth of the river bed at the sensor location"
+    category: river_depth
+    unit: "m"
+    enabled: false
+    sampling_interval: 60
+    minimum_value: 0.0
+    maximum_value: 15.0
+    aliases: ["depth"]
+
+  - sensor_name: gps_location
+    display_name: "GPS Location"
+    description: "Geographic coordinates of the monitoring station"
+    category: gps
+    unit: "deg"
+    enabled: false
+    sampling_interval: 300
+    minimum_value: -180.0
+    maximum_value: 180.0
+    aliases: ["gps"]
+    # Example hardware: a GPS receiver module
+
+  - sensor_name: rainfall
+    display_name: "Rainfall"
+    description: "Accumulated rainfall near the monitoring station"
+    category: rainfall
+    unit: "mm"
+    enabled: false
+    sampling_interval: 300
+    minimum_value: 0.0
+    maximum_value: 500.0
+
+  - sensor_name: wind_speed
+    display_name: "Wind Speed"
+    description: "Wind speed near the monitoring station"
+    category: wind_speed
+    unit: "m/s"
+    enabled: false
+    sampling_interval: 30
+    minimum_value: 0.0
+    maximum_value: 60.0
+
+  - sensor_name: par
+    display_name: "Photosynthetically Active Radiation"
+    description: "Light intensity available for photosynthesis"
+    category: par
+    unit: "umol/m2/s"
+    enabled: false
+    sampling_interval: 60
+    minimum_value: 0.0
+    maximum_value: 3000.0
+    # Example hardware: a PAR quantum sensor

@@ -1,0 +1,805 @@
+2026-07-16 03:27:03 | ERROR    | app.analytics.base:calculate:208 - Calculation failed: parameter=dummy error=boom
+2026-07-16 03:27:03 | ERROR    | app.analytics.base:calculate:208 - Calculation failed: parameter=dummy error=should be caught
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/sensor/not_a_real_sensor: Unknown sensor 'not_a_real_sensor'.
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: Specify either 'interval' or 'start'/'end', not both.
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: Both 'start' and 'end' are required when either is provided.
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: 'start' must be strictly before 'end'.
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/analytics/not_a_real_parameter: Unknown analytics parameter 'not_a_real_parameter'.
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/analytics/tds: Specify either 'interval' or 'start'/'end', not both.
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:04 | ERROR    | app.database.ingestion_worker:_run:135 - Failed to persist packet (device=None, sequence=1): Cannot save a packet with no device_id.
+2026-07-16 03:27:05 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:05 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:05 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:27:05 | ERROR    | app.serial.serial_manager:_run:156 - Failed to open serial port 'COM_TEST': mock: port unavailable
+2026-07-16 03:27:05 | ERROR    | app.serial.serial_manager:_run:156 - Failed to open serial port 'COM_TEST': mock: port unavailable
+2026-07-16 03:27:05 | ERROR    | app.serial.serial_manager:_read_loop:196 - Communication error, will attempt to reconnect: Serial read failed: mock: cable removed
+2026-07-16 03:27:05 | ERROR    | app.serial.serial_manager:_read_loop:196 - Communication error, will attempt to reconnect: Serial read failed: mock: cable removed
+2026-07-16 03:27:05 | ERROR    | app.serial.serial_manager:_run:147 - No serial port available (configured or auto-detected).
+2026-07-16 03:27:15 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/compare: Unknown parameter 'temperature' (not a configured sensor or analytics key).
+2026-07-16 03:27:28 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/statistics/not_a_real_param: Unknown parameter 'not_a_real_param' (not a configured sensor or analytics key).
+2026-07-16 03:27:28 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/statistics/dissolved_oxygen: Specify either 'window' or 'start'/'end' (custom range), not both.
+2026-07-16 03:27:28 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/compare: 'parameter_a' and 'parameter_b' must be different.
+2026-07-16 03:29:35 | ERROR    | app.analytics.base:calculate:208 - Calculation failed: parameter=dummy error=boom
+2026-07-16 03:29:35 | ERROR    | app.analytics.base:calculate:208 - Calculation failed: parameter=dummy error=should be caught
+2026-07-16 03:29:35 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:35 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/statistics/not_a_real_parameter: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/statistics/dissolved_oxygen: Specify either 'window' or 'start'/'end' (custom range), not both.
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/statistics/dissolved_oxygen: 'start' must be strictly before 'end'.
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/trends/not_a_real_parameter: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/seasonal/not_a_real_parameter: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/compare: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/compare: 'parameter_a' and 'parameter_b' must be different.
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/sensor/not_a_real_sensor: Unknown sensor 'not_a_real_sensor'.
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: Specify either 'interval' or 'start'/'end', not both.
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: Both 'start' and 'end' are required when either is provided.
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: 'start' must be strictly before 'end'.
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/analytics/not_a_real_parameter: Unknown analytics parameter 'not_a_real_parameter'.
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/analytics/tds: Specify either 'interval' or 'start'/'end', not both.
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:36 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:37 | ERROR    | app.database.ingestion_worker:_run:135 - Failed to persist packet (device=None, sequence=1): Cannot save a packet with no device_id.
+2026-07-16 03:29:37 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:37 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:37 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:37 | ERROR    | app.serial.serial_manager:_run:156 - Failed to open serial port 'COM_TEST': mock: port unavailable
+2026-07-16 03:29:38 | ERROR    | app.serial.serial_manager:_run:156 - Failed to open serial port 'COM_TEST': mock: port unavailable
+2026-07-16 03:29:38 | ERROR    | app.serial.serial_manager:_read_loop:196 - Communication error, will attempt to reconnect: Serial read failed: mock: cable removed
+2026-07-16 03:29:38 | ERROR    | app.serial.serial_manager:_read_loop:196 - Communication error, will attempt to reconnect: Serial read failed: mock: cable removed
+2026-07-16 03:29:38 | ERROR    | app.serial.serial_manager:_run:147 - No serial port available (configured or auto-detected).
+2026-07-16 03:29:55 | ERROR    | app.analytics.base:calculate:208 - Calculation failed: parameter=dummy error=boom
+2026-07-16 03:29:55 | ERROR    | app.analytics.base:calculate:208 - Calculation failed: parameter=dummy error=should be caught
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/statistics/not_a_real_parameter: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/statistics/dissolved_oxygen: Specify either 'window' or 'start'/'end' (custom range), not both.
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/statistics/dissolved_oxygen: 'start' must be strictly before 'end'.
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/trends/not_a_real_parameter: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/seasonal/not_a_real_parameter: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/compare: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/compare: 'parameter_a' and 'parameter_b' must be different.
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/sensor/not_a_real_sensor: Unknown sensor 'not_a_real_sensor'.
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: Specify either 'interval' or 'start'/'end', not both.
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: Both 'start' and 'end' are required when either is provided.
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: 'start' must be strictly before 'end'.
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:56 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/analytics/not_a_real_parameter: Unknown analytics parameter 'not_a_real_parameter'.
+2026-07-16 03:29:56 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/analytics/tds: Specify either 'interval' or 'start'/'end', not both.
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.ingestion_worker:_run:135 - Failed to persist packet (device=None, sequence=1): Cannot save a packet with no device_id.
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:57 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 03:29:58 | ERROR    | app.serial.serial_manager:_run:156 - Failed to open serial port 'COM_TEST': mock: port unavailable
+2026-07-16 03:29:58 | ERROR    | app.serial.serial_manager:_run:156 - Failed to open serial port 'COM_TEST': mock: port unavailable
+2026-07-16 03:29:58 | ERROR    | app.serial.serial_manager:_read_loop:196 - Communication error, will attempt to reconnect: Serial read failed: mock: cable removed
+2026-07-16 03:29:58 | ERROR    | app.serial.serial_manager:_read_loop:196 - Communication error, will attempt to reconnect: Serial read failed: mock: cable removed
+2026-07-16 03:29:58 | ERROR    | app.serial.serial_manager:_run:147 - No serial port available (configured or auto-detected).
+2026-07-16 08:34:47 | ERROR    | app.analytics.base:calculate:208 - Calculation failed: parameter=dummy error=boom
+2026-07-16 08:34:47 | ERROR    | app.analytics.base:calculate:208 - Calculation failed: parameter=dummy error=should be caught
+2026-07-16 08:34:48 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:48 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/statistics/not_a_real_parameter: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/statistics/dissolved_oxygen: Specify either 'window' or 'start'/'end' (custom range), not both.
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/statistics/dissolved_oxygen: 'start' must be strictly before 'end'.
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/trends/not_a_real_parameter: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/seasonal/not_a_real_parameter: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/compare: Unknown parameter 'not_a_real_parameter' (not a configured sensor or analytics key).
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/compare: 'parameter_a' and 'parameter_b' must be different.
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/sensor/not_a_real_sensor: Unknown sensor 'not_a_real_sensor'.
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: Specify either 'interval' or 'start'/'end', not both.
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: Both 'start' and 'end' are required when either is provided.
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/sensor/conductivity: 'start' must be strictly before 'end'.
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - NotFoundError on /api/v1/history/analytics/not_a_real_parameter: Unknown analytics parameter 'not_a_real_parameter'.
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.main:handle_application_error:152 - BadRequestError on /api/v1/history/analytics/tds: Specify either 'interval' or 'start'/'end', not both.
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:49 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:50 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:50 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:50 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:50 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:50 | ERROR    | app.database.ingestion_worker:_run:135 - Failed to persist packet (device=None, sequence=1): Cannot save a packet with no device_id.
+2026-07-16 08:34:50 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:50 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:50 | ERROR    | app.database.db:get_connection:86 - Database connection error: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-16 08:34:51 | ERROR    | app.serial.serial_manager:_run:156 - Failed to open serial port 'COM_TEST': mock: port unavailable
+2026-07-16 08:34:51 | ERROR    | app.serial.serial_manager:_run:156 - Failed to open serial port 'COM_TEST': mock: port unavailable
+2026-07-16 08:34:51 | ERROR    | app.serial.serial_manager:_read_loop:196 - Communication error, will attempt to reconnect: Serial read failed: mock: cable removed
+2026-07-16 08:34:51 | ERROR    | app.serial.serial_manager:_read_loop:196 - Communication error, will attempt to reconnect: Serial read failed: mock: cable removed
+2026-07-16 08:34:51 | ERROR    | app.serial.serial_manager:_run:147 - No serial port available (configured or auto-detected).

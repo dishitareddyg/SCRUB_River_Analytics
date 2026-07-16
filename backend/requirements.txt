@@ -1,0 +1,39 @@
+# =============================================================================
+# River Intelligence Platform - Backend Dependencies
+# =============================================================================
+
+# --- Core web framework ---
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+
+# --- Data validation & configuration ---
+pydantic==2.10.3
+pydantic-settings==2.7.0
+python-dotenv==1.0.1
+PyYAML==6.0.2
+
+# --- Database ---
+SQLAlchemy==2.0.36
+alembic==1.14.0
+psycopg2-binary==2.9.10
+
+# --- Logging ---
+loguru==0.7.3
+
+# --- Testing ---
+pytest==8.3.4
+httpx==0.28.1
+
+# =============================================================================
+# Reserved for future modules (not required by the current backend
+# foundation, listed here so the environment is ready as modules land)
+# =============================================================================
+
+# --- Serial communication (future: app/serial) ---
+pyserial==3.5
+
+# --- Analytics / ML (future: app/analytics, app/ml) ---
+numpy==2.2.1
+pandas==2.2.3
+scikit-learn==1.6.0
+xgboost==2.1.3
