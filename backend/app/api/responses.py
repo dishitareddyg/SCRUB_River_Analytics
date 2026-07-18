@@ -38,6 +38,7 @@ from app.api.schemas.history import SensorHistoryData
 from app.api.schemas.sensor import LiveSensorsData
 from app.api.schemas.system import SystemHealthData, SystemInfoData
 from app.historical.schemas import ComparisonData, SeasonalData, StatisticsData, TrendData
+from app.ml.schemas import AnomalyData, PollutionProbabilityData, RiverHealthForecastData, TrendPredictionData
 from app.utils.response import SuccessResponse
 
 DataT = TypeVar("DataT")
@@ -55,6 +56,10 @@ HistoricalStatisticsResponse = SuccessResponse[StatisticsData]
 HistoricalTrendResponse = SuccessResponse[TrendData]
 HistoricalSeasonalResponse = SuccessResponse[SeasonalData]
 HistoricalComparisonResponse = SuccessResponse[ComparisonData]
+MLPredictionResponse = SuccessResponse[TrendPredictionData]
+MLAnomalyResponse = SuccessResponse[AnomalyData]
+MLPollutionResponse = SuccessResponse[PollutionProbabilityData]
+MLRiverHealthResponse = SuccessResponse[RiverHealthForecastData]
 
 
 def success(

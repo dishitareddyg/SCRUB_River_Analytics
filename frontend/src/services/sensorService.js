@@ -195,3 +195,54 @@ export function getHistoricalComparison(parameterA, parameterB, { window, start,
     },
   });
 }
+
+/**
+ * GET /ml/predictions - a short-horizon trend forecast for a
+ * supported parameter (dissolved_oxygen, ph_level, conductivity,
+ * water_temperature, water_level, river_discharge), from the AI
+ * Decision Support Engine.
+ * @param {string} parameter - Forecast target parameter key.
+ * @param {Object} [params]
+ * @param {"next_hour"|"next_day"|"next_week"} [params.horizon] - Forecast horizon.
+ * @param {string} [params.deviceName] - Restrict to a single device.
+ * @returns {Promise<Object>} TrendPredictionData payload.
+ */
+export function getMlPredictions(parameter, { horizon, deviceName } = {}) {
+  return get("/ml/predictions", {
+    params: { parameter, horizon, device_name: deviceName },
+  });
+}
+
+/**
+ * GET /ml/anomalies - scores the current multi-sensor snapshot for
+ * anomalies via an Isolation Forest.
+ * @param {Object} [params]
+ * @param {string} [params.deviceName] - Restrict to a single device.
+ * @returns {Promise<Object>} AnomalyData payload.
+ */
+export function getMlAnomalies({ deviceName } = {}) {
+  return get("/ml/anomalies", { params: { device_name: deviceName } });
+}
+
+/**
+ * GET /ml/pollution - a rule-assisted probability distribution over
+ * candidate pollution sources.
+ * @param {Object} [params]
+ * @param {string} [params.deviceName] - Restrict to a single device.
+ * @returns {Promise<Object>} PollutionProbabilityData payload.
+ */
+export function getMlPollution({ deviceName } = {}) {
+  return get("/ml/pollution", { params: { device_name: deviceName } });
+}
+
+/**
+ * GET /ml/river-health - forecasts the composite River Health Score
+ * at a given horizon.
+ * @param {Object} [params]
+ * @param {"next_hour"|"next_day"|"next_week"} [params.horizon] - Forecast horizon.
+ * @param {string} [params.deviceName] - Restrict to a single device.
+ * @returns {Promise<Object>} RiverHealthForecastData payload.
+ */
+export function getMlRiverHealth({ horizon, deviceName } = {}) {
+  return get("/ml/river-health", { params: { horizon, device_name: deviceName } });
+}

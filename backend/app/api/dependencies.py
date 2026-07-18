@@ -15,7 +15,9 @@ their existing public singletons/factories
 :func:`app.serial.sensor_registry.get_sensor_registry`,
 :func:`app.analytics.config.get_analytics_config`) and constructs the
 one new collaborator this layer needs
-(:class:`app.analytics.analytics_engine.AnalyticsEngine`).
+(:class:`app.analytics.analytics_engine.AnalyticsEngine`,
+:class:`app.historical.service.HistoricalAnalyticsService`, and
+:class:`app.ml.inference.MLInferenceService`).
 """
 
 from __future__ import annotations
@@ -30,6 +32,7 @@ from app.analytics.config import AnalyticsConfig, get_analytics_config
 from app.config.settings import Settings, get_settings
 from app.database.service import DatabaseService, get_database_service
 from app.historical.service import HistoricalAnalyticsService
+from app.ml.inference import MLInferenceService
 from app.serial.sensor_registry import SensorRegistry, get_sensor_registry
 from app.serial.serial_manager import SerialManager
 
@@ -152,3 +155,47 @@ def get_historical_service_dependency(
         A ready-to-use :class:`HistoricalAnalyticsService`.
     """
     return HistoricalAnalyticsService(db=db, sensor_registry=registry, analytics_config=config)
+
+
+def get_ml_inference_service_dependency(
+    db: DatabaseService = Depends(get_database_service),
+    registry: SensorRegistry = Depends(get_sensor_registry_dependency),
+    config: AnalyticsConfig = Depends(get_analytics_config_dependency),
+    settings: Settings = Depends(get_settings_dependency),
+    historical_service: HistoricalAnalyticsService = Depends(get_historical_service_dependency),
+) -> MLInferenceService:
+    """Provide an :class:`MLInferenceService` bound to the current request's collaborators.
+
+    Deliberately *not* cached, for the same reason as
+    :func:`get_analytics_engine_dependency`: construction is cheap
+    (it does not itself train or load any model - that only happens
+    lazily, inside the individual ``predict``/``detect_anomaly``/etc.
+    calls), and building it fresh per-request means overriding any of
+    the underlying providers in tests transparently propagates here.
+
+    Args:
+        db: The database facade, injected.
+        registry: The configured sensor registry, injected.
+        config: The Analytics Engine configuration, injected.
+        settings: The application settings (model directory, training
+            window, etc.), injected.
+        historical_service: The :class:`HistoricalAnalyticsService`,
+            reused here for trend deltas, injected.
+
+    Returns:
+        A ready-to-use :class:`MLInferenceService`.
+    """
+    from app.ml.model_manager import ModelManager
+    from app.ml.trainer import TrainingPipeline
+
+    model_manager = ModelManager(settings.ml_model_dir)
+    pipeline = TrainingPipeline(db, registry, config, model_manager, settings)
+    return MLInferenceService(
+        db=db,
+        sensor_registry=registry,
+        analytics_config=config,
+        model_manager=model_manager,
+        settings=settings,
+        historical_service=historical_service,
+        pipeline=pipeline,
+    )

@@ -17,6 +17,7 @@ from app.api.routers import analytics as analytics_router_module
 from app.api.routers import historical as historical_router_module
 from app.api.routers import history as history_router_module
 from app.api.routers import live as live_router_module
+from app.api.routers import ml as ml_router_module
 from app.api.routers import system as system_router_module
 from app.config.settings import get_settings
 from app.database.db import check_database_connection
@@ -85,3 +86,4 @@ api_router.include_router(live_router_module.router, prefix="/live")
 api_router.include_router(analytics_router_module.router, prefix="/analytics")
 api_router.include_router(history_router_module.router, prefix="/history")
 api_router.include_router(historical_router_module.router, prefix="/history")
+api_router.include_router(ml_router_module.router, prefix="/ml")

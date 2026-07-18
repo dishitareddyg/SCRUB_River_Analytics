@@ -17,6 +17,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import DashboardIcon from "@mui/icons-material/SpaceDashboard";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import InsightsIcon from "@mui/icons-material/Insights";
+import PsychologyIcon from "@mui/icons-material/Psychology";
 import SettingsIcon from "@mui/icons-material/Settings";
 import WaterIcon from "@mui/icons-material/Water";
 
@@ -26,6 +27,7 @@ const NAV_ITEMS = [
   { label: "Dashboard", path: "/", icon: DashboardIcon },
   { label: "Trends", path: "/trends", icon: TrendingUpIcon },
   { label: "Analytics", path: "/analytics", icon: InsightsIcon },
+  { label: "Prediction", path: "/prediction", icon: PsychologyIcon },
   { label: "Settings", path: "/settings", icon: SettingsIcon },
 ];
 

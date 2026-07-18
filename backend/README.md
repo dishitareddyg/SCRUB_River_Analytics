@@ -1,4 +1,4 @@
-# River Intelligence Platform — Backend (Modules 1-6)
+# River Intelligence Platform — Backend (Modules 1-7)
 
 ## Project Overview
 
@@ -60,13 +60,28 @@ direction/confidence — explicitly **no Machine Learning, forecasting,
 or prediction** — and exposes its results both as new REST endpoints
 (`GET /history/statistics|trends|seasonal/{parameter}`,
 `GET /history/compare`) and as a reusable `HistoricalAnalyticsService`
-that a future ML/forecasting module can depend on directly.
+that Module 7 depends on directly.
 
-Explicitly out of scope for this stage: Water Quality Index, River
-Health Score, flood/pollution/thermal-stress/habitat/algal-bloom risk
-scoring, machine learning, prediction, reports, WebSockets,
-authentication, and alerts. Their package locations exist (`app/ml`)
-but contain no business logic yet.
+**Module 7 (AI Decision Support Engine)** — see
+[AI Decision Support Engine](#ai-decision-support-engine) below — is a
+lightweight, classical-ML layer (`app/ml/`) built on top of Module 6:
+short-horizon trend prediction (Random Forest/XGBoost), multivariate
+anomaly detection (Isolation Forest), a rule-assisted pollution-source
+probability distribution, and a composite River Health Score forecast
+(OLS linear trend, reusing `app.historical.trends.linear_trend`
+directly). Every prediction is computed **on demand** — a model is
+trained on the spot the first time it's needed (from data already in
+the database) and cached via `joblib` for next time, so there's no
+separate offline training step blocking the API. Explicitly **no deep
+learning, no online learning, no cloud/distributed/GPU training** —
+every estimator is small enough to train and predict on a standard
+laptop.
+
+Explicitly out of scope for this stage: Water Quality Index (as an
+authoritative standard — Module 7's composite health score is a
+lightweight forecasting-only proxy, not a WQI), flood/thermal-stress/
+habitat/algal-bloom risk scoring, deep learning, large language
+models, reports, WebSockets, authentication, and alerts.
 
 ```
 Arduino Uno
@@ -84,16 +99,19 @@ PostgreSQL / TimescaleDB
 Analytics Engine (app/analytics)
     │  CalculationResult
     ▼
+Historical Analytics & Trend Engine (app/historical)
+    │  statistics/trends/seasonal/comparison
+    ▼
+AI Decision Support Engine (app/ml) ◄── you are here
+    │  predict/detect_anomaly/classify_pollution/forecast_river_health
+    ▼
 REST API (app/api)
     │  JSON over HTTP
-    ├──────────────────────────────┐
-    ▼                              ▼
-React Dashboard (frontend/)   Historical Analytics & Trend
-    │  Live/Analytics/Trends       Engine (app/historical) ◄── you are here
-    │  pages consume REST API      │  statistics/trends/seasonal/
-    ▼                              │  comparison, reusable by ↓
-Future Modules                     ▼
-                              Future ML / Prediction / Reports
+    ▼
+React Dashboard (frontend/)
+    │  Live/Analytics/Trends/Prediction pages consume REST API
+    ▼
+Future Modules — Reports / Alerts / Authentication
 ```
 
 ## Architecture
@@ -110,10 +128,10 @@ Future Modules                     ▼
   packet queue into storage.
 - **API (`app/api`)** — See [REST API](#rest-api) below. Fully
   implemented: feature routers (`system`, `live`, `analytics`,
-  `history`) mounted into the single versioned `api_router` (at
-  `API_V1_PREFIX`), Pydantic request/response schemas, a
-  dependency-injection layer, and consistent error handling built on
-  Module 1's existing response envelopes.
+  `history`, `historical`, `ml`) mounted into the single versioned
+  `api_router` (at `API_V1_PREFIX`), Pydantic request/response
+  schemas, a dependency-injection layer, and consistent error
+  handling built on Module 1's existing response envelopes.
 - **Utils (`app/utils`)** — Loguru-based logging with console +
   rotating daily file sinks (`logger.py`), a custom exception
   hierarchy (`exceptions.py`), and standardized
@@ -138,9 +156,15 @@ Future Modules                     ▼
   aggregation/comparison functions, a shared time-window-resolution +
   data-fetching layer, and a `HistoricalAnalyticsService` facade
   consumed by new `app/api/routers/historical.py` endpoints.
-- **ML (`app/ml`)** — Empty (docstring-only) package reserving its
-  place in the architecture for a future module, so files never need
-  to move between folders later.
+- **AI Decision Support Engine (`app/ml`)** — See
+  [AI Decision Support Engine](#ai-decision-support-engine) below.
+  Fully implemented: configurable pandas feature engineering, a
+  historical-data-to-ML-dataset builder (built on `app/historical`),
+  an Isolation Forest anomaly detector, a Random Forest/XGBoost trend
+  predictor, a rule-assisted pollution-source classifier, a composite
+  River Health Score + forecast, `joblib`-based model
+  versioning/persistence, a `TrainingPipeline`, and an on-demand
+  `MLInferenceService` facade consumed by `app/api/routers/ml.py`.
 
 ## Folder Structure
 
@@ -175,7 +199,18 @@ backend/
 │   │   ├── hydrology.py        # Flow Velocity, River Discharge
 │   │   ├── sediment.py         # Estimated Sediment Load
 │   │   └── analytics_engine.py # AnalyticsEngine (DatabaseService integration)
-│   ├── ml/                    # RESERVED — future ML module
+│   ├── ml/                     # AI Decision Support Engine (Module 7)
+│   │   ├── feature_engineering.py # rolling/lag/rate-of-change/calendar features
+│   │   ├── dataset_builder.py  # historical DB records -> ML-ready DataFrame
+│   │   ├── anomaly_detector.py # Isolation Forest wrapper
+│   │   ├── trend_predictor.py  # Random Forest / XGBoost regressor wrapper
+│   │   ├── pollution_classifier.py # rule-assisted pollution source probabilities
+│   │   ├── river_health_predictor.py # composite score + OLS-trend forecast
+│   │   ├── model_manager.py    # joblib save/load/versioning
+│   │   ├── trainer.py          # TrainingPipeline (build -> train -> evaluate -> save)
+│   │   ├── inference.py        # MLInferenceService (on-demand train-or-load facade)
+│   │   ├── schemas.py          # Pydantic response models
+│   │   └── utils.py            # enums, constants, metric helpers
 │   ├── historical/              # Historical Analytics & Trend Engine (Module 6)
 │   │   ├── statistics.py       # min/max/mean/median/std-dev/rolling stats
 │   │   ├── trends.py           # OLS linear trend + direction classification
@@ -204,7 +239,8 @@ backend/
 │   │   │   ├── live.py        # GET /live/latest
 │   │   │   ├── analytics.py   # GET /analytics/latest
 │   │   │   ├── history.py     # GET /history/sensor/{name}, /history/analytics/{param}
-│   │   │   └── historical.py  # GET /history/statistics|trends|seasonal/{param}, /history/compare
+│   │   │   ├── historical.py  # GET /history/statistics|trends|seasonal/{param}, /history/compare
+│   │   │   └── ml.py          # GET /ml/predictions|anomalies|pollution|river-health
 │   │   └── schemas/
 │   │       ├── sensor.py      # Live-reading schemas
 │   │       ├── analytics.py   # Derived-parameter schemas
@@ -245,11 +281,23 @@ backend/
 │   ├── test_historical_comparison.py
 │   ├── test_historical_utils.py
 │   ├── test_historical_service.py
-│   └── test_api_historical.py
+│   ├── test_api_historical.py
+│   ├── ml_test_helpers.py
+│   ├── test_ml_feature_engineering.py
+│   ├── test_ml_dataset_builder.py
+│   ├── test_ml_anomaly_detector.py
+│   ├── test_ml_trend_predictor.py
+│   ├── test_ml_pollution_classifier.py
+│   ├── test_ml_river_health_predictor.py
+│   ├── test_ml_model_manager.py
+│   ├── test_ml_trainer.py
+│   ├── test_ml_inference.py
+│   └── test_api_ml.py
 ├── requirements.txt
 ├── pytest.ini
 ├── alembic.ini
 ├── .env.example
+├── .gitignore
 └── README.md
 ```
 
@@ -734,6 +782,10 @@ curl "http://localhost:8000/api/v1/history/statistics/dissolved_oxygen?window=we
 curl "http://localhost:8000/api/v1/history/trends/tds?window=month"
 curl "http://localhost:8000/api/v1/history/seasonal/dissolved_oxygen?group_by=season&window=year"
 curl "http://localhost:8000/api/v1/history/compare?parameter_a=dissolved_oxygen&parameter_b=water_temperature&window=week"
+curl "http://localhost:8000/api/v1/ml/predictions?parameter=dissolved_oxygen&horizon=next_day"
+curl "http://localhost:8000/api/v1/ml/anomalies?device_name=river-bot-01"
+curl "http://localhost:8000/api/v1/ml/pollution?device_name=river-bot-01"
+curl "http://localhost:8000/api/v1/ml/river-health?horizon=next_week"
 ```
 
 ### Example Response (`GET /analytics/latest`, abbreviated)
@@ -780,7 +832,8 @@ providers in `app/api/dependencies.py`
 (`get_database_service`, `get_analytics_engine_dependency`,
 `get_sensor_registry_dependency`, `get_settings_dependency`,
 `get_serial_manager_dependency`, `get_analytics_config_dependency`,
-`get_historical_service_dependency`) — none of them import a
+`get_historical_service_dependency`, `get_ml_inference_service_dependency`) —
+none of them import a
 singleton directly. Tests override
 `get_database_service` with an isolated in-memory SQLite
 `DatabaseService` via `app.dependency_overrides` (see
@@ -995,6 +1048,288 @@ suite: `frontend/src/components/HistoricalPanels.test.jsx`
 cases in `frontend/src/services/sensorService.test.js` /
 `frontend/src/pages/Trends.test.jsx`.
 
+## AI Decision Support Engine
+
+### Architecture
+
+```
+MLInferenceService (app/ml/inference.py)
+    │  the only thing the API layer (app/api/routers/ml.py) imports
+    │
+    ├── predict(parameter, horizon, device_name)
+    │       │  load-or-train a TrendPredictor, predict the latest feature row
+    │       ▼
+    │   TrainingPipeline.prepare_trend_dataset() — shared verbatim between
+    │   training and inference, so both use the identical feature space
+    │
+    ├── detect_anomaly(device_name)
+    │       │  load-or-train an AnomalyDetector, score the latest snapshot
+    │       ▼
+    │   TrainingPipeline.prepare_anomaly_dataset() — same sharing pattern
+    │
+    ├── classify_pollution(device_name)
+    │       │  current readings + HistoricalAnalyticsService.get_trends()
+    │       │  deltas -> PollutionClassifier.classify() (rule-assisted,
+    │       │  no training - see "Pollution Source Probability" below)
+    │       ▼
+    └── forecast_river_health(horizon, device_name)
+            │  DatasetBuilder -> per-row RiverHealthPredictor.compute_score()
+            │  -> app.historical.trends.linear_trend() forecasts the
+            │     resulting score series (reused, not reimplemented)
+            ▼
+        HealthForecastResult
+```
+
+Every dependency (`DatabaseService`, `SensorRegistry`,
+`AnalyticsConfig`, `ModelManager`, `Settings`,
+`HistoricalAnalyticsService`, `TrainingPipeline`) is injected through
+`MLInferenceService`'s constructor, matching every other service in
+this codebase — tests build it against an isolated in-memory
+`DatabaseService` and a `tmp_path` model directory (see
+`tests/ml_test_helpers.py`).
+
+**Predictions are computed on demand.** Each inference method first
+tries `ModelManager.load()`; if nothing is cached yet, it trains a
+fresh (small, fast) model on the spot via `TrainingPipeline`, serves
+the prediction, and leaves the newly trained model saved via `joblib`
+for next time. `python -m app.ml.trainer` remains available to
+pre-train every model up front (e.g. in a deployment's startup
+script) so the *first* API request doesn't pay the training cost.
+
+### Scope
+
+Classical, CPU-only ML only, per this module's requirements:
+
+- **No** deep learning (no TensorFlow/PyTorch, no neural networks),
+  **no** Large Language Models, **no** online learning, **no**
+  cloud/distributed/GPU training.
+- Estimators: `IsolationForest` (anomaly detection),
+  `RandomForestRegressor` — with an optional `XGBRegressor` fallback
+  path — (trend prediction). Both from scikit-learn/XGBoost, both
+  fast enough to train in well under a second on a laptop with the
+  seeded row counts this module's tests use.
+- **No** new database tables and **no** schema changes — reads
+  exclusively through `app.historical.utils.fetch_parameter_series`
+  (Module 6) and `DatabaseService.get_latest_readings` (Module 3).
+  Trained models are the only new persistent artifacts, stored as
+  `.joblib` files under `Settings.ml_model_dir` (default
+  `app/ml/artifacts/`, gitignored).
+
+### Feature Engineering
+
+`app/ml/feature_engineering.py` builds every feature family over a
+pandas `DataFrame` via a single configurable entry point,
+`build_features(df, FeatureConfig(...))`: rolling mean/rolling std
+("Moving Average"/"Rolling Mean"/"Rolling Std" — `moving_average` is a
+named alias of `rolling_mean`, not a second implementation, per this
+module's "No Duplicate Logic" standard), rate of change (`_roc`, a
+percent change per row), day-of-week/month/season calendar features,
+"previous N values" lag features, and named parameter "change"
+features (`rainfall_change`, `temperature_difference`,
+`water_level_change`, `do_change`, `conductivity_change` — any other
+column still gets a generic `<column>_change`). `FeatureConfig`
+controls which target columns, rolling window sizes, and lag counts
+are used, and whether leading rows containing window/lag-induced
+`NaN` are dropped.
+
+### Dataset Builder
+
+`app/ml/dataset_builder.py::DatasetBuilder` turns historical database
+records into an ML-ready `DataFrame`, built **on top of**
+`app.historical.utils.fetch_parameter_series` (Module 6) rather than
+re-querying `DatabaseService` directly — every parameter (raw sensor
+or derived analytics) is fetched, resampled onto a shared time axis
+(`resample_frequency`, default hourly), and joined into one frame.
+Missing values are handled via `"interpolate"` (time-based linear
+interpolation + edge-fill), `"ffill"`, or `"drop"`; outliers are
+*clipped* (not dropped, to keep the time axis intact) via IQR or
+z-score; `normalize()` optionally applies a `StandardScaler`/
+`MinMaxScaler`, returning the fitted scaler for persistence alongside
+a model. Parameters with no usable data in range are dropped (with a
+logged warning) rather than poisoning every row via a single all-`NaN`
+column.
+
+### Anomaly Detection
+
+`app/ml/anomaly_detector.py::AnomalyDetector` wraps a single
+multivariate `IsolationForest` over the current multi-sensor snapshot
+(one model across every monitored parameter, not one per sensor, so
+it captures relationships *between* parameters). Returns an
+`anomaly_score` (`0.0`-`1.0`, inverted + min-max normalized against
+the training score distribution so "higher = more anomalous"), an
+`is_anomaly` label, a `confidence` (distance from the decision
+midpoint), and up to three `contributing_parameters` (the features
+with the largest absolute z-score against the training mean/std).
+
+### Trend Prediction
+
+`app/ml/trend_predictor.py::TrendPredictor` fits a
+`RandomForestRegressor` (default) or `XGBRegressor` (optional,
+falls back to Random Forest with a logged warning if `xgboost` isn't
+importable) per `(parameter, horizon)` pair, evaluated on a
+chronological holdout (last 20% of rows — never shuffled, to avoid
+leaking future information) for `MAE`/`RMSE`/`R²`, then refit on the
+full dataset. Supports `dissolved_oxygen`, `ph_level`, `conductivity`,
+`water_temperature`, `water_level`, and `river_discharge` out of the
+box (`app.ml.utils.DEFAULT_TREND_PARAMETERS`) across three horizons —
+Next Hour / Next Day / Next Week
+(`HORIZON_STEPS`, converted to a step count via
+`Settings.ml_resample_frequency`). A confidence interval is derived
+from the spread across the forest's individual trees' predictions
+(±1.96 standard deviations) rather than a separate quantile model;
+`model_confidence` is the holdout R², clamped to `[0.0, 1.0]`.
+
+### Pollution Source Probability
+
+`app/ml/pollution_classifier.py::PollutionClassifier` is deliberately
+**rule-assisted, not a trained classifier** — no labeled pollution-
+incident data exists in this platform to train one on. A small set of
+heuristic scoring rules (documented per-rule in the module) evaluates
+current readings and their recent trend (reusing
+`HistoricalAnalyticsService.get_trends()` for the trend percentages)
+for each of Domestic Sewage, Agricultural Runoff, Industrial
+Effluent, Stormwater, and Natural Variation; scores are normalized
+into a probability distribution that always sums to `1.0` across
+every class *including* `Unknown` (which absorbs whatever probability
+mass no rule explains) — the API never reports a single confident
+verdict, only a distribution, per this module's "do not claim
+certainty" requirement. Every source is floored at a small non-zero
+probability and capped below `MAX_SOURCE_PROBABILITY` (0.85).
+
+### River Health Forecast
+
+`app/ml/river_health_predictor.py::RiverHealthPredictor` computes a
+composite `0`-`100` score from weighted sub-indices (DO 30%, pH 20%,
+turbidity 20%, conductivity 15%, water temperature 15% —
+`DEFAULT_WEIGHTS`; any missing parameter is excluded and the remaining
+weights renormalized) and forecasts it forward by fitting
+`app.historical.trends.linear_trend()` (Module 6's OLS implementation,
+reused rather than reimplemented) to a short history of the composite
+score itself, then projecting the requested horizon. This composite
+score is a lightweight, forecasting-only indicator — not presented as
+an authoritative Water Quality Index. The forecast is categorized into
+`HealthCategory.{excellent,good,fair,poor,critical}` via fixed score
+thresholds (`categorize_health_score()`), with confidence equal to the
+fitted trend line's R².
+
+### Model Management
+
+`app/ml/model_manager.py::ModelManager` saves every trained object via
+`joblib.dump()` under `<Settings.ml_model_dir>/<model_name>/<version>.joblib`,
+alongside a `<version>.json` `ModelMetadata` record (algorithm,
+evaluation metrics, training row count, trained-at timestamp) and a
+`latest.json` pointer. `load(model_name, version=None)` defaults to
+the latest version; `list_versions()` lists every saved version. This
+is the *only* place any submodule touches `joblib` directly.
+
+### Training Pipeline
+
+`app/ml/trainer.py::TrainingPipeline` builds a dataset (via
+`DatasetBuilder`), engineers features (via `build_features()`), trains
+and evaluates a model, and saves it (via `ModelManager`) — for the two
+model families that need training (anomaly detection, trend
+prediction; the pollution classifier is rule-based and the river
+health forecast is computed directly, neither needs a persisted
+model). `train_all()` trains the anomaly detector plus every
+`(parameter, horizon)` trend predictor combination, recording any
+skipped model (insufficient data) in its `TrainingSummary` rather than
+raising and aborting the whole run. Runnable directly for an
+initial/offline training pass:
+
+```bash
+python -m app.ml.trainer
+```
+
+`TrainingPipeline.prepare_trend_dataset()` and
+`.prepare_anomaly_dataset()` are also used directly by
+`MLInferenceService` (not just by `train_*`) so the exact feature
+space used to train a model is the same one used to build the current
+snapshot it predicts from — one implementation, not two copies that
+could drift apart.
+
+### Inference
+
+`app/ml/inference.py::MLInferenceService` provides the four reusable
+functions this module's requirements call for:
+
+- `predict(parameter, horizon, device_name)` → trend forecast
+- `detect_anomaly(device_name)` → anomaly score/label
+- `classify_pollution(device_name)` → pollution source distribution
+- `forecast_river_health(horizon, device_name)` → health score forecast
+
+Every method returns `status="insufficient_data"` (never raises, never
+fabricates a result) when fewer than `Settings.ml_min_training_samples`
+usable historical points are available.
+
+### New REST Endpoints
+
+Mounted under `/ml` (`app/api/routers/ml.py`), using the same response
+envelope and error conventions as the rest of the REST API. Every
+response includes a `timestamp`, confidence score(s), and a `model`
+metadata block (`model_name`, `version`, `algorithm`, `trained_at`,
+`freshly_trained`):
+
+- `GET /ml/predictions?parameter=&horizon=&device_name=` — trend
+  prediction. `400` if `parameter` isn't one of
+  `DEFAULT_TREND_PARAMETERS`.
+- `GET /ml/anomalies?device_name=` — current multi-sensor anomaly
+  score/label.
+- `GET /ml/pollution?device_name=` — pollution source probability
+  distribution.
+- `GET /ml/river-health?horizon=&device_name=` — River Health Score
+  forecast.
+
+### Model Evaluation
+
+`app/ml/utils.py::regression_metrics()` computes MAE/RMSE/R² (used by
+every `TrendPredictor.train()` call, stored in `ModelMetadata.metrics`
+and returned as part of the training summary);
+`classification_metrics()` computes precision/recall for anomaly
+detection where labeled ground truth is available
+(`AnomalyDetector.evaluate()`). Both are stored via `ModelManager` at
+training time for later display/inspection.
+
+### Dashboard Integration
+
+A new **Prediction** page (`frontend/src/pages/Prediction.jsx`) was
+added to the dashboard's navigation (additive — no existing page was
+redesigned): a Forecast Card per trend parameter
+(`ForecastCard.jsx`, from `/ml/predictions`), an Anomaly Indicator
+(`AnomalyIndicator.jsx`, from `/ml/anomalies`), Pollution Source
+Probabilities (`PollutionSourceProbabilities.jsx`, from
+`/ml/pollution`), a River Health Forecast card
+(`RiverHealthForecastCard.jsx`, from `/ml/river-health`), a shared
+horizon selector (Next Hour/Day/Week), and a Trend Chart panel
+(reusing the existing `TrendChart` component against the already-
+implemented `/history/sensor`/`/history/analytics` endpoints).
+Prediction confidence is shown inline on every card.
+
+### Testing (AI Decision Support Engine)
+
+```bash
+pytest tests/test_ml_feature_engineering.py
+pytest tests/test_ml_dataset_builder.py
+pytest tests/test_ml_anomaly_detector.py
+pytest tests/test_ml_trend_predictor.py
+pytest tests/test_ml_pollution_classifier.py
+pytest tests/test_ml_river_health_predictor.py
+pytest tests/test_ml_model_manager.py
+pytest tests/test_ml_trainer.py
+pytest tests/test_ml_inference.py
+pytest tests/test_api_ml.py
+```
+
+`test_ml_trainer.py`, `test_ml_inference.py`, and `test_api_ml.py`
+exercise the full pipeline end-to-end (seeded historical data ->
+feature engineering -> training -> inference) against an isolated
+in-memory SQLite `DatabaseService` and a pytest `tmp_path` model
+directory (`tests/ml_test_helpers.py` — never the real
+`app/ml/artifacts/`), covering: insufficient-data handling, unknown-
+parameter `400`s, model caching (train-once, reuse-after), and every
+endpoint's happy path. Frontend coverage lives in
+`frontend/src/components/PredictionPanels.test.jsx` and
+`frontend/src/pages/Prediction.test.jsx`.
+
 ## Dependencies
 
 Core (used by this module): `fastapi`, `uvicorn`, `pydantic`,
@@ -1083,14 +1418,14 @@ This foundation is designed to be extended, not restructured:
    **Implemented.** See
    [Historical Analytics & Trend Engine](#historical-analytics--trend-engine)
    above.
-6. **Machine Learning** (`app/ml`) — `predictor.py`, `anomaly.py`,
-   `pollution_source.py`, likely exposed through a future
-   `app/api/routers/prediction.py`, and free to depend directly on
-   `HistoricalAnalyticsService` for feature computation rather than
-   re-querying `DatabaseService` from scratch.
+6. ~~**AI Decision Support Engine** (`app/ml`)~~ — **Implemented.**
+   See [AI Decision Support Engine](#ai-decision-support-engine)
+   above.
 7. **Reports & Alerts** — report generation and threshold-based
    alerting, likely their own `app/reports`/`app/alerts` packages
-   plus corresponding API routers.
+   plus corresponding API routers, free to depend directly on
+   `MLInferenceService` and `HistoricalAnalyticsService` rather than
+   re-querying `DatabaseService` from scratch.
 
 Each future module should add files into the folders reserved for it
 above; the top-level architecture, configuration system, database

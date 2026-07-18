@@ -144,6 +144,38 @@ class Settings(BaseSettings):
     log_folder: str = Field(default="logs")
     log_level: str = Field(default="INFO")
 
+    # ------------------------------------------------------------------
+    # AI Decision Support Engine configuration (app/ml)
+    # ------------------------------------------------------------------
+    ml_model_dir: str = Field(
+        default="app/ml/artifacts",
+        description="Directory where trained models are versioned and persisted via joblib.",
+    )
+    ml_min_training_samples: int = Field(
+        default=30,
+        description=(
+            "Minimum number of usable historical data points required before a model may be "
+            "trained; below this, inference endpoints report INSUFFICIENT_DATA instead of "
+            "training on too little data."
+        ),
+    )
+    ml_training_window_days: int = Field(
+        default=90,
+        description="Default lookback window, in days, used to assemble training datasets.",
+    )
+    ml_resample_frequency: str = Field(
+        default="1h",
+        description="Pandas offset alias used to resample multi-sensor series onto a shared time axis.",
+    )
+    ml_anomaly_contamination: float = Field(
+        default=0.05,
+        description="Expected proportion of anomalous points, passed to IsolationForest.",
+    )
+    ml_random_state: int = Field(
+        default=42,
+        description="Random seed used by every ML estimator, for reproducible training runs.",
+    )
+
     @field_validator("cors_origins", mode="before")
     @classmethod
     def _split_cors_origins(cls, value: object) -> object:
