@@ -1,0 +1,4 @@
+pyserial==3.5
+paho-mqtt==1.6.1
+supabase==2.7.4
+python-dotenv==1.0.1

@@ -1,0 +1,29 @@
+[Unit]
+Description=Lake Analysis Bot Backend
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/lake-bot-backend
+EnvironmentFile=/home/pi/lake-bot-backend/.env
+ExecStart=/home/pi/lake-bot-backend/venv/bin/python /home/pi/lake-bot-backend/main.py
+Restart=always
+RestartSec=5
+# Give the process time to flush SQLite / MQTT on shutdown.
+TimeoutStopSec=10
+# Journald logging (captured automatically from stdout/stderr)
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=lake-bot-backend
+
+# Modest hardening; adjust if the dedicated user needs different
+# access to serial devices (dialout group membership is required).
+NoNewPrivileges=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
