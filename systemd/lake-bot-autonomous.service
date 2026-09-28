@@ -1,0 +1,16 @@
+[Unit]
+Description=Lake Bot Autonomous Navigation & River Analytics Service
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/lake-bot/autonomous_nav
+ExecStart=/usr/bin/python3 main.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
