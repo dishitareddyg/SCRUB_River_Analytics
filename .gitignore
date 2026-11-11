@@ -1,0 +1,66 @@
+# ── Secrets (never commit: Supabase service-role key, API token) ──
+.env
+.env.*
+!.env.example
+*.env
+lake-bot.env
+*.pem
+*.key
+cloudflared/
+.cloudflared/
+credentials*.json
+cert.pem
+
+# ── Local robot data (created at runtime) ──
+data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+waypoints.json
+.waypoints.*.tmp
+
+# ── Logs ──
+*.log
+logs/
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ── Virtual environments ──
+venv/
+.venv/
+env/
+ENV/
+
+# ── Tests / coverage / tooling caches ──
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+
+# ── Editors / OS ──
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Deployment leftovers ──
+*.tar.gz
+*.zip

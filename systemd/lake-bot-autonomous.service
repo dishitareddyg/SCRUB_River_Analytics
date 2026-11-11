@@ -1,0 +1,48 @@
+[Unit]
+Description=Lake Bot Autonomous Navigation & Water Quality Service
+Documentation=file:///opt/lake-bot/autonomous_nav/README.md
+# Start after the network stack and the UART device exist.
+Wants=network-online.target
+After=network-online.target dev-ttyAMA1.device
+# Adjust the device unit if STM32_SERIAL_PORT changes (e.g. dev-ttyACM0.device).
+StartLimitIntervalSec=300
+StartLimitBurst=10
+
+[Service]
+Type=simple
+User=lakebot
+Group=lakebot
+SupplementaryGroups=dialout
+WorkingDirectory=/opt/lake-bot/autonomous_nav
+# Root-owned, mode 0640, group lakebot — credentials never live in the repo.
+EnvironmentFile=/etc/lake-bot/lake-bot.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/lake-bot/venv/bin/python main.py
+
+# Restart on crashes. Motion is NEVER resumed automatically: on start the
+# service sets any ACTIVE mission to PAUSED and sends "+0" motor packets.
+Restart=on-failure
+RestartSec=5
+
+# Graceful shutdown: SIGTERM -> zero motors -> stop workers -> close UART + SQLite.
+KillSignal=SIGTERM
+KillMode=mixed
+TimeoutStopSec=20
+
+# Persistent data (SQLite WAL + waypoints.json): /var/lib/lake-bot
+StateDirectory=lake-bot
+StateDirectoryMode=0750
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=lake-bot
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/lake-bot
+
+[Install]
+WantedBy=multi-user.target
